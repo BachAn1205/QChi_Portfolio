@@ -6,3 +6,8 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Large design reference PDFs
+*.pdf
+101 Dos  Donts of UI Design [UI Pedia Bonus] (Pixsel Academy).pdf
+Blue Modern Project Portfolio Presentation.pdf
