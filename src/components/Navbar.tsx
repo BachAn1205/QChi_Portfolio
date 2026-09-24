@@ -70,18 +70,18 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
         </button>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-1 lg:gap-2 bg-[#FAF9F2] p-1.5 rounded-full border border-[#335C33]/15 shadow-xs">
+        {/* Desktop Nav Links - Folder Tab Dock */}
+        <nav className="hidden md:flex items-center gap-1 lg:gap-1.5 bg-[#FAF9F2] p-1.5 rounded-full border border-[#B7CCA0] shadow-[0_2px_10px_rgba(43,78,43,0.05)]">
           {navItems.map((item) => {
             const isActive = currentRoute === item.route;
             return (
               <button
                 key={item.route}
                 onClick={() => handleNavClick(item.route)}
-                className={`px-3.5 py-1.5 rounded-full text-xs lg:text-sm font-semibold transition-all duration-200 cursor-pointer ${
+                className={`px-4 py-1.5 rounded-full text-xs lg:text-sm font-semibold transition-all duration-200 cursor-pointer font-display ${
                   isActive
-                    ? 'bg-[#335C33] text-[#F6F6EE] shadow-xs'
-                    : 'text-[#2C2E2B]/80 hover:text-[#335C33] hover:bg-[#E3EDD3]/50'
+                    ? 'bg-[#2B4E2B] text-[#F6F6EE] shadow-sm transform scale-[1.02]'
+                    : 'text-[#2C2E2B]/80 hover:text-[#2B4E2B] hover:bg-[#E3EDD3]/60'
                 }`}
               >
                 {item.label[lang]}
@@ -92,37 +92,36 @@ export const Navbar: React.FC<NavbarProps> = ({
 
         {/* Right Controls: Language Switcher Pill + Resume Button */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Language Switcher Pill as specified in prompt (EN | VI, matcha-light background, forest-green selected) */}
-          <div className="inline-flex items-center p-1 rounded-full bg-[#E3EDD3] border border-[#335C33]/15 shadow-xs">
+          {/* Language Switcher Pill */}
+          <div className="inline-flex items-center p-0.5 rounded-full bg-[#E3EDD3] border border-[#B7CCA0] shadow-xs">
             <button
               onClick={() => onToggleLang('en')}
-              className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer font-display ${
                 lang === 'en'
-                  ? 'bg-[#335C33] text-[#F6F6EE] shadow-xs'
-                  : 'text-[#335C33] hover:text-[#284828]'
+                  ? 'bg-[#2B4E2B] text-[#F6F6EE] shadow-xs'
+                  : 'text-[#2B4E2B] hover:bg-[#F6F6EE]/60'
               }`}
             >
               EN
             </button>
-            <span className="text-[#335C33]/40 text-xs px-0.5 font-bold">|</span>
             <button
               onClick={() => onToggleLang('vi')}
-              className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer ${
+              className={`px-2.5 py-1 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer font-display ${
                 lang === 'vi'
-                  ? 'bg-[#335C33] text-[#F6F6EE] shadow-xs'
-                  : 'text-[#335C33] hover:text-[#284828]'
+                  ? 'bg-[#2B4E2B] text-[#F6F6EE] shadow-xs'
+                  : 'text-[#2B4E2B] hover:bg-[#F6F6EE]/60'
               }`}
             >
               VI
             </button>
           </div>
 
-          {/* Quick Resume Button */}
+          {/* Academic Resume Button */}
           <button
             onClick={onOpenResume}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-xl bg-[#335C33] text-[#F6F6EE] text-xs sm:text-sm font-bold shadow-xs hover:bg-[#284828] active:scale-95 transition-all cursor-pointer"
+            className="hidden sm:inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#2B4E2B] text-[#F6F6EE] hover:bg-[#1E371E] transition-all duration-200 shadow-sm text-xs sm:text-sm font-bold font-display cursor-pointer hover:shadow-md hover:scale-[1.02]"
           >
-            <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#E3EDD3]" />
+            <FileText className="w-4 h-4 text-[#E3EDD3]" />
             <span>{UI_STRINGS.nav.resumeButton[lang]}</span>
           </button>
 

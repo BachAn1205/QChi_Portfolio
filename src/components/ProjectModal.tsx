@@ -36,11 +36,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, la
       />
 
       {/* Modal Card */}
-      <div className="relative z-10 w-full max-w-3xl bg-[#F6F6EE] rounded-3xl p-6 md:p-8 shadow-2xl border border-[#335C33]/20 max-h-[92vh] overflow-y-auto">
+      <div className="relative z-10 w-full max-w-3xl bg-[#FAF9F2] rounded-3xl p-6 md:p-8 shadow-2xl border-2 border-[#B7CCA0] max-h-[92vh] overflow-y-auto">
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 p-2 rounded-full bg-[#E3EDD3] text-[#335C33] hover:bg-[#D5E3C0] transition-colors cursor-pointer shadow-xs z-20"
+          className="absolute top-5 right-5 p-2 rounded-full bg-[#E3EDD3] text-[#2B4E2B] hover:bg-[#B7CCA0] transition-colors cursor-pointer shadow-xs z-20 border border-[#B7CCA0]"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -48,21 +48,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose, la
 
         {/* Header Badges */}
         <div className="flex flex-wrap items-center gap-2 mb-3">
-          <div className="section-badge">
-            <Sparkles className="text-[#8C5A35] w-3.5 h-3.5" />
-            <span>{project.badge[lang]}</span>
-          </div>
-          <span className="text-xs font-semibold text-[#8C5A35] bg-[#FAF9F2] px-3 py-1 rounded-full border border-[#335C33]/15">
+          <span className="canva-pill-tab text-xs uppercase tracking-wider">
+            {project.badge[lang]}
+          </span>
+          <span className="text-xs font-semibold text-[#8C5A35] bg-white px-3 py-1 rounded-full border border-[#B7CCA0]">
             {project.period}
           </span>
         </div>
 
         {/* Project Title */}
-        <h3 className="text-2xl md:text-3xl font-extrabold text-[#335C33] font-serif tracking-tight mb-2 pr-8">
+        <h3 className="text-2xl md:text-3xl font-black text-[#2B4E2B] font-display uppercase tracking-tight mb-1 pr-8">
           {project.title[lang]}
         </h3>
 
-        <p className="text-sm md:text-base font-semibold text-[#8C5A35] mb-4">
+        <p className="text-xs sm:text-sm font-bold text-[#8C5A35] font-display uppercase tracking-wider mb-4">
           {project.role[lang]}
         </p>
 

@@ -4,16 +4,25 @@
 @layer base {
   :root {
     --font-heading: 'Lora', Georgia, serif;
-    --font-body: 'Plus Jakarta Sans', 'Raleway', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Outfit', 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-handwritten: 'Caveat', cursive, sans-serif;
     
     --color-bg-cream: #F6F6EE;
     --color-surface-light: #FAF9F2;
-    --color-forest-green: #335C33;
-    --color-forest-hover: #284828;
+    --color-surface-pure: #FFFFFF;
+    --color-forest-dark: #1E371E;
+    --color-forest-green: #2B4E2B;
+    --color-forest-medium: #3A693A;
+    --color-forest-tint: #4E854E;
     --color-matcha-light: #E3EDD3;
-    --color-matcha-hover: #D5E3C0;
+    --color-matcha-soft: #F0F5E6;
+    --color-folder-tab: #D5E4C2;
+    --color-folder-border: #B7CCA0;
     --color-terracotta: #8C5A35;
+    --color-terracotta-soft: #F6EFEA;
     --color-charcoal: #2C2E2B;
+    --color-charcoal-muted: #5A5D57;
   }
 
   *,
@@ -38,6 +47,10 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
+    /* Subtle organic graph paper background */
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(43, 78, 43, 0.035) 1px, transparent 1px);
+    background-size: 32px 32px;
   }
 
   input,
@@ -49,11 +62,19 @@
     font-feature-settings: "lnum" 1, "pnum" 1;
   }
 
+  /* Display Font for Punchy Canva-style Headings */
+  .font-display {
+    font-family: var(--font-display) !important;
+    letter-spacing: -0.025em;
+  }
+
+  .font-handwritten {
+    font-family: var(--font-handwritten) !important;
+  }
+
   /* Headings & Serif Titles */
-  h1, h2, h3, h4, h5, h6, .font-serif {
+  .font-serif {
     font-family: var(--font-heading) !important;
-    font-variant-numeric: lining-nums proportional-nums;
-    font-feature-settings: "lnum" 1, "pnum" 1;
     word-spacing: -0.02em;
     letter-spacing: -0.02em;
   }
@@ -157,5 +178,84 @@
   @keyframes shimmer {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
+  }
+
+  /* ─── CANVA DOSSIER & PILL SYSTEM ────────────────────────────────── */
+  
+  /* Two-tone gradient text for Canva-style giant titles */
+  .text-gradient-forest {
+    background: linear-gradient(180deg, #5B8C5B 0%, #2B4E2B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-sage {
+    background: linear-gradient(135deg, #7FA873 0%, #3D6A3D 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Pill Tab centered on top of Card border (signature Canva Slide 2, 4, 8) */
+  .canva-pill-tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem 1.25rem;
+    border-radius: 9999px;
+    background-color: #E3EDD3;
+    color: #2B4E2B;
+    border: 1.5px solid #C4D9A8;
+    font-family: var(--font-display) !important;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: -0.01em;
+    box-shadow: 0 2px 6px -1px rgba(43, 78, 43, 0.08);
+  }
+
+  /* Clean Dossier Card with Canva Border Style */
+  .canva-dossier-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(183, 204, 160, 0.65);
+    border-radius: 1.75rem; /* 28px */
+    box-shadow: 0 10px 30px -10px rgba(43, 78, 43, 0.06);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .canva-dossier-card:hover {
+    border-color: rgba(78, 133, 78, 0.85);
+    box-shadow: 0 16px 36px -10px rgba(43, 78, 43, 0.12);
+    transform: translateY(-2px);
+  }
+
+  /* Floating Angled Sticker (Anti-AI spontaneous feel) */
+  .floating-sticker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 1rem;
+    border-radius: 9999px;
+    background: #FFFFFF;
+    color: #2B4E2B;
+    border: 1.5px solid rgba(183, 204, 160, 0.7);
+    box-shadow: 0 4px 14px -2px rgba(43, 78, 43, 0.08);
+    font-family: var(--font-display);
+    font-size: 0.825rem;
+    font-weight: 600;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .floating-sticker:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    box-shadow: 0 6px 20px -2px rgba(43, 78, 43, 0.14);
+  }
+
+  /* Folder tab graphic element */
+  .folder-tab-badge {
+    position: relative;
+    background: #E3EDD3;
+    border-top-left-radius: 0.75rem;
+    border-top-right-radius: 1.25rem;
   }
 }
